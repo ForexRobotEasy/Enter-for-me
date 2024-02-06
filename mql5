@@ -1,0 +1,169 @@
+mql5
+//+------------------------------------------------------------------+
+//|                                                     Enter for me |
+//|                                         Developed by Forex Robot Easy Team |
+//|                                                www.forexroboteasy.com |
+//+------------------------------------------------------------------+
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//| Expert initialization function                                     |
+//|                                                                  |
+//+------------------------------------------------------------------+
+int OnInit()
+{
+   // Initialize necessary variables and settings
+   return(INIT_SUCCEEDED);
+}
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//| Expert deinitialization function                                   |
+//|                                                                  |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+{
+   // Perform necessary cleanup tasks before exiting
+}
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//| Expert start function                                              |
+//|                                                                  |
+//+------------------------------------------------------------------+
+void OnTick()
+{
+   // Check if it is time to enter a trade
+   if (IsTimeToEnterTrade())
+   {
+      // Get trade parameters from the Euporiafx community platform
+      string currencyPair = GetCurrencyPair();
+      string tradeDirection = GetTradeDirection();
+      double entryPrice = GetEntryPrice();
+      double stopLoss = GetStopLoss();
+      double takeProfit = GetTakeProfit();
+      double tradeSize = GetTradeSize();
+      
+      // Validate trade parameters
+      if (IsValidTradeParameters(currencyPair, tradeDirection, entryPrice, stopLoss, takeProfit, tradeSize))
+      {
+         // Place trade using the entered parameters
+         PlaceTrade(currencyPair, tradeDirection, entryPrice, stopLoss, takeProfit, tradeSize);
+      }
+      else
+      {
+         // Handle invalid trade parameters
+         Print('Invalid trade parameters. Please enter valid parameters.');
+      }
+   }
+}
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//| Check if it is time to enter a trade                               |
+//|                                                                  |
+//+------------------------------------------------------------------+
+bool IsTimeToEnterTrade()
+{
+   // Implement logic to determine if it is time to enter a trade
+   // Return true if it is time to enter a trade, false otherwise
+   return true;
+}
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//| Get currency pair from the Euporiafx community platform            |
+//|                                                                  |
+//+------------------------------------------------------------------+
+string GetCurrencyPair()
+{
+   // Implement logic to get the currency pair from the Euporiafx community platform
+   // Return the currency pair as a string
+   return 'EURUSD';
+}
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//| Get trade direction from the Euporiafx community platform          |
+//|                                                                  |
+//+------------------------------------------------------------------+
+string GetTradeDirection()
+{
+   // Implement logic to get the trade direction from the Euporiafx community platform
+   // Return the trade direction as a string ('buy' or 'sell')
+   return 'buy';
+}
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//| Get entry price from the Euporiafx community platform              |
+//|                                                                  |
+//+------------------------------------------------------------------+
+double GetEntryPrice()
+{
+   // Implement logic to get the entry price from the Euporiafx community platform
+   // Return the entry price as a double
+   return 1.2000;
+}
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//| Get stop loss from the Euporiafx community platform                |
+//|                                                                  |
+//+------------------------------------------------------------------+
+double GetStopLoss()
+{
+   // Implement logic to get the stop loss from the Euporiafx community platform
+   // Return the stop loss as a double
+   return 1.1950;
+}
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//| Get take profit from the Euporiafx community platform              |
+//|                                                                  |
+//+------------------------------------------------------------------+
+double GetTakeProfit()
+{
+   // Implement logic to get the take profit from the Euporiafx community platform
+   // Return the take profit as a double
+   return 1.2050;
+}
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//| Get trade size from the Euporiafx community platform               |
+//|                                                                  |
+//+------------------------------------------------------------------+
+double GetTradeSize()
+{
+   // Implement logic to get the trade size from the Euporiafx community platform
+   // Return the trade size as a double
+   return 0.1;
+}
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//| Validate trade parameters                                          |
+//|                                                                  |
+//+------------------------------------------------------------------+
+bool IsValidTradeParameters(const string currencyPair, const string tradeDirection, const double entryPrice, 
+                           const double stopLoss, const double takeProfit, const double tradeSize)
+{
+   // Implement logic to validate the trade parameters
+   // Return true if the trade parameters are valid, false otherwise
+   return true;
+}
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//| Place trade using the entered parameters                           |
+//|                                                                  |
+//+------------------------------------------------------------------+
+void PlaceTrade(const string currencyPair, const string tradeDirection, const double entryPrice, 
+                const double stopLoss, const double takeProfit, const double tradeSize)
+{
+   // Implement logic to place the trade using the entered parameters
+   // Display a message indicating the trade has been placed
+   Print('Trade placed successfully.');
+}
